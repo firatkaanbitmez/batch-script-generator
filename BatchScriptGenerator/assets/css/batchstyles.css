@@ -1,0 +1,980 @@
+﻿html {
+  place-items: center;
+  text-align: center;
+}
+
+body {
+  display: grid;
+  height: 100%;
+  width: 100%;
+
+  place-items: center;
+  text-align: center;
+  background: #f2f2f2;
+}
+
+.primary-button {
+  /* Diğer stil kuralları burada kalabilir */
+
+  background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+  box-shadow: 0 2px 4px rgba(45, 35, 66, 0.4),
+    0 7px 13px -3px rgba(45, 35, 66, 0.3), 0 -3px 0 inset;
+  color: #fff;
+  font-size: 18px;
+  height: 40px;
+  line-height: 1;
+  padding: 0 16px;
+  text-align: left;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  transition: box-shadow 0.15s, transform 0.15s, background 0.15s;
+  will-change: box-shadow, transform, background;
+  cursor: pointer;
+  border-radius: 40px;
+  /* Oval şekil için border-radius değerini artırın */
+  margin-top: 20px;
+}
+
+.primary-button:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.primary-button:hover {
+  box-shadow: 0 4px 8px rgba(45, 35, 66, 0.4),
+    0 7px 13px -3px rgba(45, 35, 66, 0.3), #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+  background: linear-gradient(45deg, #3c4fe0 0%, #3c4fe0 100%);
+}
+
+.primary-button:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+img {
+  float: left;
+  display: block;
+  margin: 0 auto;
+  margin-top: -4px;
+}
+
+.radio {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Radyo düğmelerini gizle */
+.radio input[type="radio"] {
+  display: none;
+}
+
+/* Yuvarlak kutu içine radyo düğmeyi yerleştirme */
+.radio input[type="radio"]+.radio-label::before {
+  content: "";
+  width: 24px;
+  /* Radyo düğme boyutu */
+  height: 24px;
+  /* Radyo düğme boyutu */
+  background-color: transparent;
+  border: 2px solid #007bff;
+  /* Daire kenarlığı rengi */
+  border-radius: 50%;
+  /* Daireyi yuvarlat */
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Radyo düğmesi seçildiğinde stil */
+.radio input[type="radio"]:checked+.radio-label::before {
+  background-color: #007bff;
+}
+
+/* Span'i yukarı taşıma */
+.win-checkbox {
+  position: relative;
+  top: -20px;
+  /* Span'i yukarı taşırken bu değeri ayarlayabilirsiniz */
+}
+
+.toggle-switch {
+  font: 1em sans-serif;
+  font: bolder;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-left: 100px;
+}
+
+.toggle-switch .slider {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  background: #f44336;
+  border-radius: 15px;
+  transition: background 0.3s ease;
+  overflow: hidden;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-switch input[type="checkbox"]+.slider::before {
+  content: "OFF";
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  line-height: 2em;
+  font-weight: bold;
+}
+
+.toggle-switch input[type="checkbox"]:checked+.slider {
+  background: #4caf50;
+}
+
+.toggle-switch input[type="checkbox"]:checked+.slider::before {
+  content: "ON";
+}
+
+.toggle-switch .slider:hover {
+  background: #e74c3c;
+}
+
+.toggle-switch-container {
+  position: relative;
+}
+
+.toggle-switch-container .toggle-info {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.toggle-switch-container:hover .toggle-info {
+  display: block;
+}
+
+.box-container {
+  display: inline-block;
+  flex-wrap: wrap;
+  /* Yatayda sığmazlarsa alt satıra geçmelerini sağlar */
+  justify-content: center;
+  /* Checkbox'ları ortalar */
+}
+
+/* Checkbox label'ı ve içerikleri için stil */
+.box label {
+  height: 50px;
+  /* Başlık yüksekliğini ayarlayın */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-overflow: ellipsis;
+
+  user-select: none;
+  /* Kullanıcının seçmesini engelle */
+
+  cursor: default;
+  /* Cursor'ı varsayılana dönüştür */
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.box label img,
+.box label span {
+  vertical-align: middle;
+}
+
+/* Checkbox stilini güncelle */
+.checkbox {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: -16px;
+  left: -20px;
+}
+
+/* Checkbox'un içindeki işareti stilini güncelle */
+.checkbox:after {
+  content: "\2713";
+  /* Yeşil tik işareti Unicode karakteri */
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  /* Tik işareti boyutunu ayarlayın */
+  color: green;
+  /* Tik işareti rengini ayarlayın */
+  font-weight: bold;
+  /* Kalınlığı artırın */
+  opacity: 0;
+  /* Başlangıçta görünmez yapın */
+  transition: opacity 0.3s;
+}
+
+/* Checkbox seçildiğinde işareti görünür hale getir */
+.checkbox-input:checked+label .checkbox:after {
+  opacity: 1;
+}
+
+.checkbox-input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Diğer stiller burada devam edebilir */
+.wrapper {
+  font: 1em sans-serif;
+
+  height: 60px;
+  margin-top: 5px;
+  width: 85vw;
+  background: #1a364b;
+  line-height: 60px;
+  border-radius: 50px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  /* Kullanıcının seçmesini engelle */
+
+  cursor: default;
+  /* Cursor'ı varsayılana dönüştür */
+}
+
+.wrapper nav {
+  position: relative;
+  display: flex;
+}
+
+.wrapper nav label {
+  flex: 1;
+  width: 100%;
+  z-index: 1;
+  cursor: pointer;
+  color: white;
+}
+
+.wrapper nav label a {
+  position: relative;
+  z-index: -1;
+  color: #1d1f20;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.6s ease;
+}
+
+.wrapper nav #Welcome:checked~label.Welcome a,
+.wrapper nav #Windows:checked~label.Windows a,
+.wrapper nav #System:checked~label.System a,
+.wrapper nav #Fixed:checked~label.Fixed a,
+.wrapper nav #Uninstall:checked~label.Uninstall a,
+.wrapper nav #Install:checked~label.Install a,
+.wrapper nav #End:checked~label.End a {
+  color: #fff;
+}
+
+.wrapper nav label a i {
+  font-size: 25px;
+  margin: 0 7px;
+}
+
+.wrapper nav .tab {
+  position: absolute;
+  height: 100%;
+  width: 15%;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+  transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper nav #Windows:checked~.tab {
+  left: 14%;
+}
+
+.wrapper nav #System:checked~.tab {
+  left: 28%;
+}
+
+.wrapper nav #Fixed:checked~.tab {
+  left: 42%;
+}
+
+.wrapper nav #Uninstall:checked~.tab {
+  left: 57%;
+}
+
+.wrapper nav #Install:checked~.tab {
+  left: 71%;
+}
+
+.wrapper nav #End:checked~.tab {
+  left: 86%;
+}
+
+.wrapper nav input {
+  display: none;
+}
+
+.clipboard {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+h4 {
+  font-size: 15px;
+  color: white;
+  /* Opsiyonel: Gri renk verin */
+  user-select: none;
+  /* Kullanıcının seçmesini engelle */
+  pointer-events: none;
+  /* Kullanıcının tıklamasını engelle */
+  cursor: default;
+  /* Cursor'ı varsayılana dönüştür */
+}
+
+h1 {
+  font-size: 14px;
+  /* Başlık boyutunu ayarlayın */
+  user-select: none;
+  /* Kullanıcının seçmesini engelle */
+  pointer-events: none;
+  /* Kullanıcının tıklamasını engelle */
+  cursor: default;
+  /* Cursor'ı varsayılana dönüştür */
+}
+
+h3 {
+  user-select: none;
+  /* Kullanıcının seçmesini engelle */
+  pointer-events: none;
+  /* Kullanıcının tıklamasını engelle */
+  cursor: default;
+  /* Cursor'ı varsayılana dönüştür */
+}
+
+img {
+  user-select: none;
+  /* Kullanıcının seçmesini engelle */
+  pointer-events: none;
+  /* Kullanıcının tıklamasını engelle */
+  cursor: default;
+  /* Cursor'ı varsayılana dönüştür */
+}
+
+.browsers-container,
+.media-container,
+.office-container,
+.edit-container,
+.musicvideo-container,
+.comminication-container,
+.fileshare-container,
+.security-container,
+.game-container,
+.devlop-container,
+.note-container,
+.Equipment-container,
+.recorder-container,
+.remote-container,
+.compress-container,
+.Utilities-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* s bölümünü sıralamak için stil */
+.browsers-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /*  bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.browsers-section .box {
+  margin: 15px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 80px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.media-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /*  bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.media-section .box {
+  margin: 15px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 80px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.office-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /*  bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.office-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.edit-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /*  bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.edit-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.musicvideo-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /*  bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.musicvideo-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.comminication-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /*  bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.comminication-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.fileshare-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /*  bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.fileshare-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.security-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /* s bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.security-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.game-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /* s bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.game-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.devlop-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /* s bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.devlop-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.note-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /* s bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.note-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.Equipment-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /* s bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.Equipment-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.recorder-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /* s bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.recorder-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.remote-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /* s bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.remote-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.compress-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /* s bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.compress-section .box {
+  margin: 10px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 100px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.Utilities-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: center;
+  /* s bölümünü sayfanın solunda hizala */
+}
+
+/* Her bir .box elementini özelleştir */
+.Utilities-section .box {
+  margin: 15px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 110px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+/* copyClipboard alanını genişletmek ve stilini iyileştirmek */
+.copy-input {
+  margin-top: 20px;
+  width: 500px;
+  height: 500px;
+  resize: none;
+  padding: 15px;
+  /* Metin ile kenar arasına boşluk ekleyin */
+  font-size: 16px;
+  /* Metin boyutunu isteğinize göre ayarlayın */
+  border: 1px solid #ccc;
+  /* İsteğe bağlı olarak kenar stilini ayarlayın */
+  border-radius: 10px;
+  /* Köşeleri daha yuvarlak yapın */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Hafif bir gölgelendirme ekleyin */
+}
+
+/* copyClipboard ikonunu sağ üst köşeye taşımak */
+.copy-btn {
+  margin-top: 20px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  /* İkon boyutunu isteğinize göre ayarlayın */
+  background-color: #fff;
+  /* İkon arkaplan rengini ayarlayın */
+  border: none;
+  border-radius: 50%;
+  /* İkonu yuvarlak yapın */
+  padding: 10px;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.copy-btn:hover {
+  transform: scale(1.2);
+  /* İkonu büyütün */
+}
+
+/* copied-success bildirimini daha iyi bir görünüm için düzenlemeler */
+.copied {
+  font-family: "Montserrat", sans-serif;
+  width: 100px;
+  opacity: 0;
+  position: relative;
+  right: 10px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+  font-size: 14px;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Bildirimi görünür hale getirin */
+.copied.active {
+  opacity: 1;
+}
+
+/* Temel stil tanımlamaları burada bulunuyor */
+
+/* Containerları sırayla alt alta yerleştirmek için stil */
+.container {
+  margin-bottom: 80px;
+  /* Containerlar arasına boşluk ekleyin */
+  margin-top: 20px;
+  padding: 20px;
+  /* Container içeriğine iç boşluk ekleyin */
+  background-color: #ffffff;
+  /* Container arka plan rengini ayarlayın */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Hafif gölge ekleyin */
+  border-radius: 5px;
+  /* Köşeleri yuvarlayın */
+}
+
+.wrapper a {
+  display: none;
+}
+
+/* Her bir section'ı stillemek için stil */
+.section {
+  width: 100%;
+  /* Tam genişlik kullanın */
+  margin-top: -50px;
+  /* Seçili sectionlar arasına boşluk ekleyin */
+}
+
+/* Diğer stiller burada devam edebilir */
+
+.uninstall-section {
+  display: flex;
+  /* Öğeleri yatayda hizalamak için flex kullan */
+  flex-wrap: wrap;
+  /* Eğer sığmazlarsa alt satıra geçmelerini sağla */
+  justify-content: flex-start;
+  /*  bölümünü sayfanın solunda hizala */
+}
+
+.uninstall-section .box {
+  margin: 20px;
+  /* Kutular arasında boşluk bırak */
+  text-align: center;
+  width: 110px;
+  /* Kutu genişliğini ayarla, isteğe bağlı olarak değiştirilebilir */
+}
+
+.custom-checkbox {
+  display: flex;
+  width: 26px;
+  height: 16px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+/* Çarpı işaretini stilini özelleştir */
+.custom-checkbox::before {
+  content: "\2717";
+  /* Kırmızı çarpı işareti Unicode karakteri */
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  /* Çarpı işareti boyutunu ayarlayın */
+  color: red;
+  /* Çarpı işareti rengini ayarlayın (kırmızı) */
+  font-weight: bold;
+  /* Kalınlığı artırın */
+  opacity: 0;
+  /* Başlangıçta görünmez yapın */
+  transition: opacity 0.3s;
+}
+
+/* Checkbox seçildiğinde çarpı işaretini görünür hale getir */
+.checkbox-input:checked+label .custom-checkbox::before {
+  opacity: 1;
+}
+
+/* Checkbox özelleştirme */
+
+.toggle-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.toggle-button {
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 5px 30px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.toggle-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #4caf50;
+  /* Geçiş rengi */
+  transition: left 0.3s;
+  z-index: -1;
+}
+
+p {
+  user-select: none;
+  /* Kullanıcının seçmesini engelle */
+  pointer-events: none;
+  /* Kullanıcının tıklamasını engelle */
+  cursor: default;
+  /* Cursor'ı varsayılana dönüştür */
+}
+
+.active-on {
+  background-color: red;
+  /* ON rengi */
+  color: #fff;
+}
+
+.active-off {
+  background-color: #4caf50;
+  /* OFF rengi */
+  color: #fff;
+}
+
+.toggle-button.active-on::before {
+  left: 0;
+}
+
+@media (max-width: 1024px) {
+  .primary-button {
+    font-size: 16px;
+    /* Buton metin boyutunu ayarlayın */
+  }
+
+  /* Diğer stiller burada güncellenebilir */
+  .primary-button {
+    width: 100%;
+    /* Butonları ekran genişliği kadar genişletin */
+  }
+
+  .browsers-section .box,
+  .media-section .box,
+  .office-section .box {
+    width: 80px;
+    /* Kutu genişliğini ayarlayın */
+  }
+
+  .wrapper nav label {
+    flex: 1;
+    width: auto;
+    /* Menü etiketlerinin genişliğini otomatik ayarlayın */
+  }
+
+  .browsers-container,
+  .media-container,
+  .office-container,
+  .edit-container,
+  .musicvideo-container,
+  .comminication-container,
+  .fileshare-container,
+  .security-container,
+  .game-container,
+  .devlop-container,
+  .note-container,
+  .Equipment-container,
+  .recorder-container,
+  .remote-container,
+  .compress-container,
+  .Utilities-container {
+    display: table;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Containerları sırayla alt alta yerleştirmek için stil */
+  .container {
+    margin-bottom: 50px;
+    /* Containerlar arasına boşluk ekleyin */
+    margin-top: 10px;
+    padding: 50px;
+    /* Container içeriğine iç boşluk ekleyin */
+    background-color: #ffffff;
+    /* Container arka plan rengini ayarlayın */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Hafif gölge ekleyin */
+    border-radius: 5px;
+    /* Köşeleri yuvarlayın */
+  }
+
+  .primary-button {
+    display: table;
+  }
+
+  .clipboard {
+    display: flex;
+    max-height: 200px;
+    max-width: 250px;
+  }
+}
